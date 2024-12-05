@@ -11,26 +11,26 @@
 }
 
   
-  .App-logo {
-    height: 48px;
-  }
-  
-  .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-  }
-  
-  .nav-links li {
-    display: inline;
-  }
-  
-  .nav-links a {
-    color: #282c34;
-    text-decoration: none;
-    font-size: 20px;  /* Increased from 18px */
-    font-weight: 300;  /* Added light font weight */
-    transition: all 0.2s ease;  /* Add smooth transition */
+.App-logo {
+  height: 48px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li {
+  display: inline;
+}
+
+.nav-links a {
+  color: #282c34;
+  text-decoration: none;
+  font-size: 20px;  /* Increased from 18px */
+  font-weight: 300;  /* Added light font weight */
+  transition: all 0.2s ease;  /* Add smooth transition */
 
 }
 
@@ -38,7 +38,7 @@
   font-size: 21px;
   text-decoration: none;  /* Remove the underline we had before */
 }
-  
-  .nav-links a:hover {
-    text-decoration: underline;
-  }
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
