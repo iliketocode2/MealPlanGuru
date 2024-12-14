@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import logo from '../assets/mealplanguru.svg';
 import '../styles/NavBar.css';
 
-function NavBar() {
+export default function NavBar() {
   return (
     <nav className="navbar">
       <Link to="/"><img src={logo} className="App-logo" alt="logo" /></Link>
@@ -15,5 +15,3 @@ function NavBar() {
     </nav>
   );
 }
-
-export default NavBar;

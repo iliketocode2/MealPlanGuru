@@ -2,7 +2,7 @@ import React from 'react';
 import '../../styles/Home.css';
 import food from '../../assets/tufts_dining.jpg'; // Replace with your image path
 import { Link } from 'react-router-dom';
-function Home() {
+export default function Home() {
   return (
     <div className="home-page">
       <div className="banner">
@@ -39,5 +39,3 @@ function Home() {
     </div>
   );
 }
-
-export default Home;

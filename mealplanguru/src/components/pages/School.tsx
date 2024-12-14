@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import '../../styles/School.css';  // Add this import
 import tuftsLogo from '../../assets/tufts.png';  // Add this import
 
-function School() {
+export default function School() {
   return (
     <div className="page">
       <h1>Find Your School</h1>
@@ -30,5 +30,3 @@ function School() {
     </div>
   );
 }
-
-export default School;

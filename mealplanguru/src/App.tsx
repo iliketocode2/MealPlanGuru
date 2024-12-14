@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './styles/App.css';
-import NavBar from './components/NavBar';
-import Home from './components/pages/Home';  // You'll need to create these components
-import School from './components/pages/School';
-import About from './components/pages/About';
-import Tufts from './components/pages/Tufts';
+import NavBar from './components/NavBar.tsx';
+import Home from './components/pages/Home.tsx';  // You'll need to create these components
+import School from './components/pages/School.tsx';
+import About from './components/pages/About.tsx';
+import Tufts from './components/pages/Tufts.tsx';
 
 function App() {
   return (
