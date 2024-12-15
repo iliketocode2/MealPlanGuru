@@ -65,9 +65,24 @@ export default function Tufts() {
       <div className="right-column">
         <section className="recent-posts">
           <h2>Recent Posts</h2>
-          < Post/>
-          < Post/>
-          < Post/>
+          <Post 
+            title="First Post" 
+            date="September 1, 2025"
+            content="This is the content of the first post." 
+            imageUrl="https://via.placeholder.com/150"
+          />
+          <Post 
+            title="Second Post" 
+            date="September 2, 2025"
+            content="This is the content of the second post." 
+            imageUrl="https://via.placeholder.com/150"
+          />
+          <Post 
+            title="Third Post" 
+            date="September 3, 2025"
+            content="This is the content of the third post." 
+            imageUrl="https://via.placeholder.com/150"
+          />
           <p>Read More</p>
         </section>
       </div>

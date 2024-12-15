@@ -55,7 +55,7 @@
 }
 
 .plan-box:hover {
-  transform: translateY(-10px);
+  transform: translateY(-5px);
 }
 
 .plan-box h3 {

@@ -19,7 +19,7 @@ export default function Footer() {
             </ul>
         </div>
         <div className="footer-copyright">
-          <p>&copy; 2023 MealPlanGuru. All rights reserved.</p>
+          <p>&copy; 2025 MealPlanGuru. All rights reserved.</p>
         </div>
       </div>
     </footer>

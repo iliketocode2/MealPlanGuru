@@ -1,12 +1,35 @@
 .post-item {
     display: flex;
-    align-items: center;
-    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 8px;
+    text-align: left;
+    transition: transform 0.3s ease;
+}
+
+.post-item:hover {
+    transform: scale(1.02);
 }
 
 .post-image {
     width: 100px;
-    height: 100px;
-    background-color: #ccc;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
     margin-right: 20px;
+}
+
+h3 {
+    margin: 0;
+}
+
+p {
+    margin: 0;
+}
+
+.date{
+    font-size: 10px;
+    margin: 0 0 5px 0;
+    color: #666;
 }
