@@ -6,6 +6,8 @@ import Home from './components/pages/Home.tsx';  // You'll need to create these 
 import School from './components/pages/School.tsx';
 import About from './components/pages/About.tsx';
 import Tufts from './components/pages/Tufts.tsx';
+import Footer from './components/Footer.tsx';
+
 
 function App() {
   return (
@@ -18,6 +20,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/tufts" element={<Tufts />} />
         </Routes>
+        <Footer />
       </div>
     </Router>
   );

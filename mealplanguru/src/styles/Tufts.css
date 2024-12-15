@@ -1,5 +1,5 @@
 .tufts-container {
-    padding: 20px;
+    padding: 10px;
 }
     
 .main-content {
@@ -68,14 +68,25 @@
   margin: 5px 0;
 }
 
-.dining-locations {
-  margin-top: 40px;
+.dining-locations .location-items-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
 }
 
-.location-item {
-  margin-bottom: 20px;
+.dining-locations .location-item {
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
 }
 
-.location-item h4 {
-  margin-bottom: 5px;
+.dining-locations .location-item:hover {
+    transform: translateY(-5px);
+}
+
+.dining-locations .location-item h4 {
+    margin-bottom: 10px;
 }
