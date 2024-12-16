@@ -66,7 +66,7 @@ export default function Tufts() {
       <div className="right-column">
         <section className="recent-posts">
           <h2>Recent Posts</h2>
-          <Link to="/posts">
+          <Link to="/tufts/posts/post-1">
           <Post 
             title="First Post" 
             date="September 1, 2025"
@@ -74,19 +74,25 @@ export default function Tufts() {
             imageUrl="https://via.placeholder.com/150"
           />
           </Link>
+          <Link to="/tufts/posts/post-2">
           <Post 
             title="Second Post" 
             date="September 2, 2025"
             content="This is the content of the second post." 
             imageUrl="https://via.placeholder.com/150"
           />
+          </Link>
+          <Link to="/tufts/posts/post-3">
           <Post 
             title="Third Post" 
             date="September 3, 2025"
             content="This is the content of the third post." 
             imageUrl="https://via.placeholder.com/150"
           />
+          </Link>
+          <Link to="/tufts/posts">
           <p>Read More</p>
+          </Link>
         </section>
       </div>
     </div>

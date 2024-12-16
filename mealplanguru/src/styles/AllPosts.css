@@ -1,0 +1,32 @@
+.all-posts {
+    padding: 20px;
+  }
+  
+  .posts-list {
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .post-summary {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 8px;
+    width: 200px;
+    text-align: center;
+  }
+  
+  .post-summary img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  .post-summary h2 {
+    margin: 10px 0 5px 0;
+  }
+  
+  .post-summary p {
+    margin: 5px 0;
+  }

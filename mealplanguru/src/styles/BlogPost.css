@@ -1,0 +1,9 @@
+.blog-post {
+    text-align: left;
+  }
+  
+  .blog-post img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }

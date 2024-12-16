@@ -1,0 +1,16 @@
+.posts-nav-bar {
+    background-color: #f8f9fa;
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .posts-nav-bar a {
+    color: #007bff;
+    text-decoration: none;
+    margin: 0 5px;
+  }
+  
+  .posts-nav-bar a:hover {
+    text-decoration: underline;
+  }

@@ -1,27 +1,24 @@
 import React from 'react';
-import '../styles/PostWriteUp.css';
+import '../styles/BlogPost.css';
 
-interface PostProps {
+interface BlogPostProps {
   title: string;
+  date: string;
   content: string;
   author: string;
-  date: string;
   imageUrl: string;
 }
 
-const Post1: React.FC<PostProps> = ({ title, date, content, author, imageUrl }) => {
+const BlogPost: React.FC<BlogPostProps> = ({ title, date, content, author, imageUrl }) => {
   return (
-    <div className="post-page">
-      <div className="main-content">
-        <h1>{title}</h1>
-        <h3>By {author}</h3>
-        <h4>Published on {date}</h4>
-        <p>
-          {content}
-        </p>
-      </div>
+    <div className="blog-post">
+      <h1>{title}</h1>
+      <h3>{author}</h3>
+      <h4>{date}</h4>
+      <img src={imageUrl} alt={title} />
+      <p>{content}</p>
     </div>
   );
 }
 
-export default Post1;
+export default BlogPost;
