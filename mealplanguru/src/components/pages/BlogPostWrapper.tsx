@@ -13,14 +13,14 @@ export default function BlogPostWrapper() {
   useEffect(() => {
     if (post) {
       // Fetch the current view count from the backend
-      fetch(`http://localhost:5000/api/posts/${postId}/viewCount`)
+      fetch(`http://localhost:5000/api/tufts/posts/${postId}/viewCount`)
         .then(response => response.json())
         .then(data => {
           setViewCount(data.viewCount);
         });
 
       // Increment the view count on the backend
-      fetch(`http://localhost:5000/api/posts/${postId}/incrementViewCount`, {
+      fetch(`http://localhost:5000/api/tufts/posts/${postId}/incrementViewCount`, {
         method: 'POST',
       })
         .then(response => response.json())

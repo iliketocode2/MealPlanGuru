@@ -30,7 +30,7 @@ const AllPosts: React.FC = () => {
 
   useEffect(() => {
     Object.keys(posts).forEach(postId => {
-      fetch(`http://localhost:5000/api/posts/${postId}/viewCount`)
+      fetch(`http://localhost:5000/api/tufts/posts/${postId}/viewCount`)
         .then(response => response.json())
         .then(data => {
           posts[postId].viewCount = data.viewCount;
