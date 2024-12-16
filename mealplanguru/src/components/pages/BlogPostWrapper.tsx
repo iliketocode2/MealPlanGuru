@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import BlogPost from '../BlogPost.tsx';
 import '../../styles/BlogPostWrapper.css';
@@ -8,6 +8,27 @@ import PostsNavBar from '../PostsNavBar.tsx';
 export default function BlogPostWrapper() {
   const { postId } = useParams();
   const post = posts[postId];
+  const [viewCount, setViewCount] = useState<number>(0);
+
+  useEffect(() => {
+    if (post) {
+      // Fetch the current view count from the backend
+      fetch(`http://localhost:5000/api/posts/${postId}/viewCount`)
+        .then(response => response.json())
+        .then(data => {
+          setViewCount(data.viewCount);
+        });
+
+      // Increment the view count on the backend
+      fetch(`http://localhost:5000/api/posts/${postId}/incrementViewCount`, {
+        method: 'POST',
+      })
+        .then(response => response.json())
+        .then(data => {
+          setViewCount(data.viewCount);
+        });
+    }
+  }, [postId, post]);
 
   if (!post) {
     return <div>Post not found</div>;
@@ -27,6 +48,7 @@ export default function BlogPostWrapper() {
           tags={post.tags}
           variant="detailed"
         />
+        <p>Views: {post.viewCount}</p>
       </div>
       <div className="sidebar">
         <h3>Most Popular Posts</h3>

@@ -14,7 +14,9 @@ export default function Home() {
             <h1>Bringing a student's perspective to meal planning</h1>
             <p>
               Meal Plan Guru is a website that helps students find the best meal 
-              plan for their needs at their school. Written by students, for students.
+              plan for their needs at their school. Providing news, updates, reviews,
+              and opinions about you meal plan and how best to use it. 
+              Written by students, for students.
             </p>
           </div>
           <div className="image-section">

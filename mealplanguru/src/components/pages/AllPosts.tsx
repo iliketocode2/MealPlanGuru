@@ -5,7 +5,7 @@ import posts from '../posts.ts';
 import PostsNavBar from '../PostsNavBar.tsx';
 
 const AllPosts: React.FC = () => {
-  const [sortOrder, setSortOrder] = useState<'oldToNew' | 'newToOld'>('newToOld');
+  const [sortOrder, setSortOrder] = useState<'oldToNew' | 'newToOld' | 'mostViewed'>('newToOld');
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
   const location = useLocation();
   const navigate = useNavigate();
@@ -28,7 +28,20 @@ const AllPosts: React.FC = () => {
     navigate(`${location.pathname}?${params.toString()}`, { replace: true });
   }, [selectedTag, navigate, location.pathname]);
 
+  useEffect(() => {
+    Object.keys(posts).forEach(postId => {
+      fetch(`http://localhost:5000/api/posts/${postId}/viewCount`)
+        .then(response => response.json())
+        .then(data => {
+          posts[postId].viewCount = data.viewCount;
+        });
+    });
+  }, []);
+
   const sortedPosts = Object.entries(posts).sort(([idA, postA], [idB, postB]) => {
+    if (sortOrder === 'mostViewed') {
+      return postB.viewCount - postA.viewCount;
+    }
     const dateA = new Date(postA.date);
     const dateB = new Date(postB.date);
     return sortOrder === 'newToOld' ? dateB.getTime() - dateA.getTime() : dateA.getTime() - dateB.getTime();
@@ -45,10 +58,11 @@ const AllPosts: React.FC = () => {
       <PostsNavBar />
       <div className="filter-bar">
         <label>
-          Sort by date:
-          <select value={sortOrder} onChange={(e) => setSortOrder(e.target.value as 'oldToNew' | 'newToOld')}>
+          Sort by:
+          <select value={sortOrder} onChange={(e) => setSortOrder(e.target.value as 'oldToNew' | 'newToOld' | 'mostViewed')}>
             <option value="newToOld">New to Old</option>
             <option value="oldToNew">Old to New</option>
+            <option value="mostViewed">Most Viewed</option>
           </select>
         </label>
         <label>
@@ -69,11 +83,12 @@ const AllPosts: React.FC = () => {
           ) : (
             filteredPosts.map(([postId, post]) => (
               <div key={postId} className="post-summary">
-                <Link to={`/posts/${postId}`}>
+                <Link to={`/tufts/posts/${postId}`}>
                   <img src={post.imageUrl} alt={post.title} />
                   <h2>{post.title}</h2>
                   <p>{post.date}</p>
                   <p>{post.author}</p>
+                  <p>Views: {post.viewCount}</p>
                   <div className="tags">
                     {post.tags.map((tag, index) => (
                       <span key={index} className="tag">{tag}</span>
