@@ -1,6 +1,7 @@
 import React from 'react';
 import '../../styles/Tufts.css';
 import Post from '../Post.tsx';
+import { Link } from 'react-router-dom';
 
 export default function Tufts() {
   const plans = [
@@ -65,12 +66,14 @@ export default function Tufts() {
       <div className="right-column">
         <section className="recent-posts">
           <h2>Recent Posts</h2>
+          <Link to="/posts">
           <Post 
             title="First Post" 
             date="September 1, 2025"
             content="This is the content of the first post." 
             imageUrl="https://via.placeholder.com/150"
           />
+          </Link>
           <Post 
             title="Second Post" 
             date="September 2, 2025"
