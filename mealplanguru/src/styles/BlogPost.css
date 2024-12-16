@@ -1,9 +1,54 @@
-.blog-post {
-    text-align: left;
+/*------------------------------BLOG POST SHARED------------------------------*/
+  .date{
+    font-size: 10px;
+    margin: 0 0 5px 0;
+    color: #666;
+}
+  
+  .right {
+    flex: 1;
+  }
+
+  /*------------------------------DETAILED---------------------------------*/
+  
+  .post-item.detailed{
+    display: flex;
+    margin-bottom: 20px;
+  }
+  .post-item.detailed .post-image {
+    width: 10%;
+    height: 300px;
   }
   
-  .blog-post img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 20px;
+  .post-item.detailed .right {
+    text-align: left;
+  }
+
+
+  /*------------------------------SUMMARY---------------------------------*/
+
+  .post-item.summary {
+    display: flex;
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 8px;
+    text-align: left;
+    transition: transform 0.3s ease;
+  }
+
+  .post-item.summary:hover {
+    transform: scale(1.02);
+}
+  
+  .post-item.summary .post-image {
+    width: 100px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    margin-right: 20px;
+  }
+  
+  .post-item.summary .right {
+    text-align: left;
   }

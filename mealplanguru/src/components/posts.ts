@@ -5,6 +5,7 @@ const posts = {
       content: 'Content 1',
       author: 'Author 1',
       imageUrl: 'https://via.placeholder.com/150',
+      tags: ['220', 'news'],
     },
     'post-2': {
       title: 'Title 2',
@@ -12,6 +13,7 @@ const posts = {
       content: 'Content 2',
       author: 'Author 2',
       imageUrl: 'https://via.placeholder.com/150',
+      tags: ['400', 'opinion'],
     },
     'post-3': {
       title: 'Title 3',
@@ -19,6 +21,7 @@ const posts = {
       content: 'Content 3',
       author: 'Author 3',
       imageUrl: 'https://via.placeholder.com/150',
+      tags: ['100', 'review'],
     },
   };
   

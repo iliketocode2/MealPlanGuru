@@ -1,42 +1,12 @@
 import React from 'react';
 import '../../styles/Tufts.css';
-import Post from '../Post.tsx';
+import BlogPost from '../BlogPost.tsx';
 import { Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import posts from '../posts.ts';
+import { plans } from '../tuftsplans.ts';
 
 export default function Tufts() {
-  const plans = [
-    {
-      name: 'Tufts Full Plan',
-      details: '400 swipes (about 3.5 meals a day) + $75 Jumbo Cash + 8 guest swipes',
-      price: '$4,230',
-      extra: '$104 for 10 meals',
-    },
-    {
-      name: '220 Plan',
-      details: '220 swipes (about 2 meals a day) + 6 guest swipes',
-      price: '$3,832',
-      extra: '$174 for 10 meals',
-    },
-    {
-      name: '160 Plan',
-      details: '160 swipes (about 10 meals a week) + 6 guest swipes',
-      price: '$2,818',
-      extra: '$176 for 10 meals',
-    },
-    {
-      name: '100 Plan',
-      details: '100 swipes (about 6 - 7 meals a week) + 6 guest swipes',
-      price: '$1,823',
-      extra: '$182 for 10 meals',
-    },
-    {
-      name: '40 Plan',
-      details: '40 swipes (about 2 - 3 meals a week)',
-      price: '$736',
-      extra: '$184 for 10 meals',
-    },
-  ];
-
   return (
     <div className="tufts-container">
     <header>
@@ -66,30 +36,23 @@ export default function Tufts() {
       <div className="right-column">
         <section className="recent-posts">
           <h2>Recent Posts</h2>
-          <Link to="/tufts/posts/post-1">
-          <Post 
-            title="First Post" 
-            date="September 1, 2025"
-            content="This is the content of the first post." 
-            imageUrl="https://via.placeholder.com/150"
-          />
-          </Link>
-          <Link to="/tufts/posts/post-2">
-          <Post 
-            title="Second Post" 
-            date="September 2, 2025"
-            content="This is the content of the second post." 
-            imageUrl="https://via.placeholder.com/150"
-          />
-          </Link>
-          <Link to="/tufts/posts/post-3">
-          <Post 
-            title="Third Post" 
-            date="September 3, 2025"
-            content="This is the content of the third post." 
-            imageUrl="https://via.placeholder.com/150"
-          />
-          </Link>
+          <div className="posts-list">
+            {Object.entries(posts).map(([postId, post]) => (
+              <div key={postId} className="post-summary">
+                <Link to={`/tufts/posts/${postId}`}>
+                  <img src={post.imageUrl} alt={post.title} />
+                  <h2>{post.title}</h2>
+                  <p>{post.date}</p>
+                  <p>{post.author}</p>
+                  <div className="tags">
+                    {post.tags.map((tag, index) => (
+                      <span key={index} className="tag">{tag}</span>
+                    ))}
+                  </div>
+                </Link>
+              </div>
+            ))}
+          </div>
           <Link to="/tufts/posts">
           <p>Read More</p>
           </Link>
@@ -106,6 +69,7 @@ export default function Tufts() {
             <p>{plan.details}</p>
             <p><strong>{plan.price}</strong></p>
             <p>{plan.extra}</p>
+            <Link to={`/tufts/posts?tag=${plan.tag}`}>See Related Posts</Link>
           </div>
         ))}
       </div>

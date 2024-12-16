@@ -1,9 +1,20 @@
-.all-posts {
+.all-posts-page {
     padding: 20px;
   }
   
+  .filter-bar {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .filter-bar label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
   .posts-list {
-    justify-content: center;
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
@@ -29,4 +40,16 @@
   
   .post-summary p {
     margin: 5px 0;
+  }
+  
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  
+  .tag {
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    padding: 2px 5px;
   }

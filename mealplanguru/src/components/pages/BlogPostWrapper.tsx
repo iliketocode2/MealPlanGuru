@@ -24,6 +24,8 @@ export default function BlogPostWrapper() {
           content={post.content}
           author={post.author}
           imageUrl={post.imageUrl}
+          tags={post.tags}
+          variant="detailed"
         />
       </div>
       <div className="sidebar">
