@@ -7,6 +7,7 @@ import Home from './components/pages/Home.tsx';
 import School from './components/pages/School.tsx';
 import About from './components/pages/About.tsx';
 import Tufts from './components/pages/Tufts.tsx';
+import Contact from './components/pages/Contact.tsx';
 import BlogPostWrapper from './components/pages/BlogPostWrapper.tsx';
 import NotFound from './components/pages/NotFound.tsx';
 import AllPosts from './components/pages/AllPosts.tsx';
@@ -23,7 +24,7 @@ function App() {
           <Route path="/tufts" element={<Tufts />} />
           <Route path="/tufts/posts" element={<AllPosts />} />
           <Route path="/tufts/posts/:postId" element={<BlogPostWrapper />} />
-          <Route path="*" element={<NotFound />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
         <Footer />
       </div>

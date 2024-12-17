@@ -15,7 +15,7 @@ export default function Footer() {
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/school">Find Your School</Link></li>
                 <li><Link to="/about">About</Link></li>
-                <li><a href="#">Contact</a></li>
+                <li><Link to="/contact">Contact</Link></li>
             </ul>
         </div>
         <div className="footer-copyright">
