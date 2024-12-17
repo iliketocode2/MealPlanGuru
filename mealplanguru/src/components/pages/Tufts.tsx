@@ -7,6 +7,12 @@ import posts from '../posts.ts';
 import { plans } from '../tuftsplans.ts';
 
 export default function Tufts() {
+
+  // Sort posts by date in descending order and get the top three
+  const recentPosts = Object.entries(posts)
+  .sort(([, postA], [, postB]) => new Date(postB.date).getTime() - new Date(postA.date).getTime())
+  .slice(0, 3);
+
   return (
     <div className="tufts-container">
     <header>
@@ -37,7 +43,7 @@ export default function Tufts() {
         <section className="recent-posts">
           <h2>Recent Posts</h2>
           <div className="posts-list">
-            {Object.entries(posts).map(([postId, post]) => (
+            {recentPosts.map(([postId, post]) => (
               <div key={postId} className="post-summary">
                 <Link to={`/tufts/posts/${postId}`}>
                   <img src={post.imageUrl} alt={post.title} />

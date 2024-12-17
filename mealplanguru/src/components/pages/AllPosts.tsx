@@ -7,6 +7,8 @@ import PostsNavBar from '../PostsNavBar.tsx';
 const AllPosts: React.FC = () => {
   const [sortOrder, setSortOrder] = useState<'oldToNew' | 'newToOld' | 'mostViewed'>('newToOld');
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [viewCounts, setViewCounts] = useState<{ [key: string]: number }>({});
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -29,18 +31,28 @@ const AllPosts: React.FC = () => {
   }, [selectedTag, navigate, location.pathname]);
 
   useEffect(() => {
-    Object.keys(posts).forEach(postId => {
-      fetch(`http://localhost:5000/api/tufts/posts/${postId}/viewCount`)
-        .then(response => response.json())
-        .then(data => {
-          posts[postId].viewCount = data.viewCount;
-        });
-    });
+    const fetchViewCounts = async () => {
+      const viewCounts: { [key: string]: number } = {};
+      const postIds = Object.keys(posts);
+      for (const postId of postIds) {
+        const response = await fetch(`http://localhost:5000/api/tufts/posts/${postId}/viewCount`);
+        const data = await response.json();
+        viewCounts[postId] = data.viewCount;
+      }
+      setViewCounts(viewCounts);
+      setLoading(false);
+    };
+
+    fetchViewCounts();
   }, []);
+
+  if (loading) {
+    return <div>Loading...</div>; // Show a loading message while fetching data
+  }
 
   const sortedPosts = Object.entries(posts).sort(([idA, postA], [idB, postB]) => {
     if (sortOrder === 'mostViewed') {
-      return postB.viewCount - postA.viewCount;
+      return (viewCounts[idB] || 0) - (viewCounts[idA] || 0);
     }
     const dateA = new Date(postA.date);
     const dateB = new Date(postB.date);
@@ -88,7 +100,7 @@ const AllPosts: React.FC = () => {
                   <h2>{post.title}</h2>
                   <p>{post.date}</p>
                   <p>{post.author}</p>
-                  <p>Views: {post.viewCount}</p>
+                  <p>Views: {viewCounts[postId]}</p>
                   <div className="tags">
                     {post.tags.map((tag, index) => (
                       <span key={index} className="tag">{tag}</span>

@@ -10,7 +10,7 @@ const posts = {
     },
     'post-2': {
       title: 'The best places to eat on campus',
-      date: '12/18/2024',
+      date: '12/15/2024',
       content: 'Review of the best places to eat on campus',
       author: 'William Goldman',
         imageUrl: 'https://via.placeholder.com/150',
@@ -19,11 +19,20 @@ const posts = {
     },
     'post-3': {
       title: 'Another banger review',
-      date: '12/17/2024',
+      date: '12/13/2024',
       content: 'Review of something else',
       author: 'William Goldman',
         imageUrl: 'https://via.placeholder.com/150',
         tags: ['100', 'review'],
+        viewCount: 0,
+    },
+    'post-4': {
+      title: 'News article',
+      date: '12/17/2024',
+      content: 'Dewick is terrible!!',
+      author: 'William Goldman',
+        imageUrl: 'https://via.placeholder.com/150',
+        tags: ['400', 'news'],
         viewCount: 0,
     },
   };
