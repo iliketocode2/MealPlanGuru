@@ -41,7 +41,9 @@ export default function Tufts() {
 
       <div className="right-column">
         <section className="recent-posts">
+          <Link to="/tufts/posts">
           <h2>Recent Posts</h2>
+          </Link>
           <div className="posts-list">
             {recentPosts.map(([postId, post]) => (
               <div key={postId} className="post-summary">
