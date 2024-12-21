@@ -62,7 +62,7 @@ export default function Tufts() {
             ))}
           </div>
           <Link to="/tufts/posts">
-          <p>Read More</p>
+          <p>See More</p>
           </Link>
         </section>
       </div>

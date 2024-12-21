@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/BlogPost.css';
+import { Link } from 'react-router-dom';
 
 interface BlogPostProps {
   title: string;
@@ -18,7 +19,9 @@ const BlogPost: React.FC<BlogPostProps> = ({ title, date, content, author, image
       <div className="right">
         <h3>{title}</h3>
         <p className="date">{date}</p>
-        <p>{author}</p>
+        <p>
+          <Link to={`/about#author1`}>{author}</Link>
+        </p>
         <p>{content}</p>
         <div className="tags">
           {tags.map((tag, index) => (
